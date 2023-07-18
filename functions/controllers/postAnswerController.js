@@ -11,6 +11,7 @@ const postAnswer = async (req, res, next) => {
     author_photo_url,
     author_year,
     author_college,
+    isAnonymous
   } = req.body;
   try {
     let myuuid = uuidv4();
@@ -28,6 +29,7 @@ const postAnswer = async (req, res, next) => {
       author_college,
       net_votes: 0,
       created_on: Timestamp.now(),
+      isAnonymous
     };
     subcollectionRef
       .doc(myuuid)
